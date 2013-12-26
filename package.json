@@ -1,0 +1,8 @@
+{
+  "name": "pintTest",
+  "version": "0.0.1",
+  "dependencies": {
+    "pint": "0.0.1",
+    "grunt-contrib-uglify": "0.2.6"
+  } 
+}
