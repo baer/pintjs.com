@@ -1,5 +1,5 @@
 module.exports = {   
-  name: 'mangle',
+  name: 'javascript',
 
   build: [
     'uglify'
@@ -9,7 +9,11 @@ module.exports = {
     uglify: {
       dist: {
         files: {
-          'dist/test.min.js': ['./src/test.js']
+          './dist/js/main.min.js': [
+            './src/js/vendor/jquery-1.10.2.min.js',
+            './src/js/vendor/bootstrap.js',
+            './src/js/main.js'
+          ]
         }
       }
     }

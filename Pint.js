@@ -10,7 +10,9 @@ module.exports = {
     initialize: {},
 
     runners: [
-      require('./build/mangle.js')
+      require('./build/css.js'),
+      require('./build/javascript.js'),
+      require('./build/static.js')
     ],
 
     finalize: {}
