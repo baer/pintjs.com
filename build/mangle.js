@@ -1,5 +1,9 @@
 module.exports = {   
-  name: "mangle",
+  name: 'mangle',
+
+  build: [
+    'uglify'
+  ],
 
   config: {
     uglify: {
@@ -9,5 +13,12 @@ module.exports = {
         }
       }
     }
-  }
+  },
+
+  // TODO
+  dependsOn: {},
+  initialize: {}, 
+  "build.production": [],
+  deploy: [],
+  "deploy.production": [],
 };
