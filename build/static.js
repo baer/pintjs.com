@@ -21,11 +21,5 @@ module.exports = {
         filter: 'isFile'
       },
     }
-  },
-
-  // TODO
-  initialize: {}, 
-  "build.production": [],
-  deploy: [],
-  "deploy.production": [],
+  }
 };

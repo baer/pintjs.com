@@ -19,11 +19,5 @@ module.exports = {
         }
       }
     }
-  },
-
-  // TODO
-  initialize: {}, 
-  "build.production": [],
-  deploy: [],
-  "deploy.production": [],
+  }
 };
