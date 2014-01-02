@@ -1,6 +1,11 @@
 module.exports = {   
   name: 'static',
 
+  dependsOn: [
+    'css',
+    'javascript'
+  ],
+
   build: [
     'copy'
   ],
@@ -19,7 +24,6 @@ module.exports = {
   },
 
   // TODO
-  dependsOn: {},
   initialize: {}, 
   "build.production": [],
   deploy: [],

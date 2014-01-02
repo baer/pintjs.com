@@ -1,6 +1,8 @@
 module.exports = {   
   name: 'css',
 
+  dependsOn: {},
+
   build: [
     'cssmin'
   ],
@@ -20,7 +22,6 @@ module.exports = {
   },
 
   // TODO
-  dependsOn: {},
   initialize: {}, 
   "build.production": [],
   deploy: [],

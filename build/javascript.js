@@ -1,6 +1,8 @@
 module.exports = {   
   name: 'javascript',
 
+  dependsOn: {},
+
   build: [
     'uglify'
   ],
@@ -20,7 +22,6 @@ module.exports = {
   },
 
   // TODO
-  dependsOn: {},
   initialize: {}, 
   "build.production": [],
   deploy: [],
