@@ -10,6 +10,14 @@ module.exports = {
     'copy'
   ],
 
+  initialize: function() {
+    console.log('I am an initializer');
+  },
+
+  finalize: function() {
+    console.log('I am a finalizer');
+  },
+
   config: {
     copy: {
       main: {
