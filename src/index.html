@@ -14,25 +14,201 @@
       <script src="js/vendor/modernizr-2.6.2.min.js"></script>
   </head>
   <body>
+
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="container jumbotron text-center">
-      <h1>Pint</h1>
-      <p class="lead">
-        I'd really love a good <span class="beer"></span> right now...
-      </p>
-      <br>
+    <div id="sidebar" class="interface">
+      <a class="toc_title" href="#">
+        Pint.js <span class="version">(0.0.5)</span>
+      </a>
+      <ul class="toc_section">
+        <li>&raquo; <a href="https://github.com/baer/pint">GitHub Repository</a></li>
+      </ul>
+
+      <a class="toc_title" href="#">
+        Introduction
+      </a>
+
+      <a class="toc_title" href="#buildfile">
+        Buildfile
+      </a>
+      <ul class="toc_section">
+        <li>- <a href="#buildfile-jobs">jobs</a></li>
+      </ul>
+
+      <a class="toc_title" href="#jobs">
+        Jobs
+      </a>
+      <ul class="toc_section">
+        <li>- <a href="#name">name</a></li>
+        <li>- <a href="#dependsOn">dependsOn</a></li>
+        <li>- <a href="#build">build</a></li>
+        <li>- <a href="#config">config</a></li>
+        <li>- <a href="#initialize">initialize</a></li>
+        <li>- <a href="#finalize">finalize</a></li>
+      </ul>
+    </div>
+
+
+
+    <div class="container">
+    
+      <div id="introduction">
+        <hgroup class="well">
+          <h1>Pint.js</h1>
+          <h4>
+            I'd really love a good <span class="beer"></span> right now...
+          </h4>
+        </hgroup>
+      </div>
+
       <p>
-        Pint is a concurrent dependency aware wrapper around <a href="http://http://gruntjs.com/">Grunt.js</a>. Because it runs grunt processes under the hood you can continue to take advantage of the enormous Grunt plugin ecosystem and you can reuse all your existing grunt config.  
+        <a href="https://github.com/baer/pint">Pint.js</a> is is a concurrent dependency aware wrapper
+        around <a href="http://http://gruntjs.com/">Grunt.js</a>. Because it runs grunt processes 
+        under the hood you can continue to take advantage of the enormous Grunt plugin ecosystem and
+        you can reuse all your existing grunt config.
       </p>
-      <br>
+
       <p>
-        <strong>
-          Check out the <a href="https://github.com/baer/pint">Github Project</a>!
-        </strong>
+        The project is
+        <a href="https://github.com/baer/pint/">hosted on GitHub</a>.
+        You can report bugs and discuss features on the
+        <a href="https://github.com/baer/pint/issues">issues page</a>
       </p>
+
+      <div id="documentation">
+        <h2 id="buildfile">Buildfile</h2>
+
+        <p id="buildfile-jobs">
+          <b class="header">jobs</b><code>buildfile.jobs</code>
+          <br />
+          Set the jobs to be run into the buildfile
+        </p>
+        <pre>
+module.exports = {
+  jobs: [
+    require('./build/javascript.js')
+  ]
+};</pre>
+
+        <h2 id="jobs">Jobs</h2>
+
+        <p id="name">
+          <b class="header">name</b><code>job.name</code>
+          <br />
+          Set the <b>name</b> property on a job. The name can be used to reference a job in dependency lists.
+        </p>
+        <pre>
+module.exports = {
+  name: 'JavaScript'
+};</pre>
+
+        <p id="dependsOn">
+          <b class="header">dependsOn</b><code>job.dependsOn</code>
+          <br />
+          Set an <b>array</b> of dependencies for a job. The job will not run until after the
+          dependencies are completed. This feature relies on dependencies being a 
+          <a href="http://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph</a>.
+          Circular dependencies are not checked for!
+        </p>
+        <pre>
+// This job will not execute until both test and handlebars jobs are completed
+
+module.exports = {
+  name: 'JavaScript',
+  dependsOn: [
+    'test',
+    'handlebars'
+  ]
+};</pre>
+
+        <p id="build">
+          <b class="header">build</b><code>job.build</code>
+          <br />
+          Set an <b>array</b> of <a href="http://gruntjs.com/">Grunt.js</a> tasks to execute during
+          the build phase. All tasks for a job are configured in the <a href="#config">job.config</a>
+          property.
+        </p>
+        <pre>
+module.exports = {
+  name: 'Lint',
+  build: [
+    'jshint'
+  ],
+
+  config: {
+    jshint: {
+      options: {
+        jshintrc : '.jshintrc',
+        ignores: ['./node_modules/**/*']
+      },
+      all: ['./**/*.js']
+    }
+  }
+};</pre>
+
+        <p id="config">
+          <b class="header">config</b><code>job.config</code>
+          <br />
+          Set the configuration of <a href="http://gruntjs.com/">Grunt.js</a> tasks. Grunt.js is a
+          plugin based tool. The example below is based on <a href="https://github.com/gruntjs/grunt-contrib-jshint">jsHint</a>
+          Visit the individual plugin websites for more examples.
+
+          <p>
+            <i>
+              Note: You do not have to load tasks with<code>grunt.loadNpmTasks('task-name');</code>
+              This is done automatically based on the package.json file
+            </i>
+          </p>
+
+        </p>
+        <pre>
+module.exports = {
+  name: 'Lint',
+  build: [
+    'jshint'
+  ],
+
+  config: {
+    jshint: {
+      options: {
+        jshintrc : '.jshintrc',
+        ignores: ['./node_modules/**/*']
+      },
+      all: ['./**/*.js']
+    }
+  }
+};</pre>
+
+        <p id="initialize">
+          <b class="header">initialize</b><code>job.initialize()</code>
+          <br />
+          Set a function to be executed immediately before the job
+        </p>
+        <pre>
+module.exports = {
+  name: 'Lint',
+  initialize: function () {
+    console.log('I am an initializer')
+  }
+};</pre>
+
+        <p id="finalize">
+          <b class="header">finalize</b><code>job.finalize()</code>
+          <br />
+          Set a function to be executed immediately after the job
+        </p>
+        <pre>
+module.exports = {
+  name: 'Lint',
+  finalize: function () {
+    console.log('I am a finalizer')
+  }
+};</pre>
+
+      </div>
     </div>
 
     <script>
