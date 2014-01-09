@@ -11,7 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <link rel="stylesheet" href="css/main.min.css">
-      <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
   </head>
   <body>
 
@@ -88,9 +88,11 @@
         </p>
         <pre>
 module.exports = {
-  jobs: [
-    require('./build/javascript.js')
-  ]
+  build: {
+    runners: [
+      require('./build/javascript.js'),
+    ]
+  }
 };</pre>
 
         <h2 id="jobs">Jobs</h2>
@@ -219,9 +221,9 @@ module.exports = {
 
       ga('create', 'UA-46908843-1', 'pintjs.com');
       ga('send', 'pageview');
-
     </script>
 
+    <script src="js/jquery-1.10.2.js"></script>
     <script src="js/main.min.js"></script>
   </body>
 </html>
