@@ -88,9 +88,11 @@
         </p>
         <pre>
 module.exports = {
-  jobs: [
-    require('./build/javascript.js')
-  ]
+  build: {
+    runners: [
+      require('./build/javascript.js'),
+    ]
+  }
 };</pre>
 
         <h2 id="jobs">Jobs</h2>
