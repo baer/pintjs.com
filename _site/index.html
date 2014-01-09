@@ -21,7 +21,7 @@
 
     <div id="sidebar" class="interface">
       <a class="toc_title" href="#">
-        Pint.js <span class="version">(0.0.5)</span>
+        Pint.js <span class="version">(0.1.0)</span>
       </a>
       <ul class="toc_section">
         <li>&raquo; <a href="https://github.com/baer/pint">GitHub Repository</a></li>
@@ -65,7 +65,7 @@
       </div>
 
       <p>
-        <a href="https://github.com/baer/pint">Pint.js</a> is is a concurrent dependency aware wrapper
+        <a href="https://github.com/baer/pint">Pint.js</a> is a concurrent dependency aware wrapper
         around <a href="http://http://gruntjs.com/">Grunt.js</a>. Because it runs grunt processes 
         under the hood you can continue to take advantage of the enormous Grunt plugin ecosystem and
         you can reuse all your existing grunt config.
@@ -88,11 +88,9 @@
         </p>
         <pre>
 module.exports = {
-  build: {
-    runners: [
-      require('./build/javascript.js'),
-    ]
-  }
+  jobs: [
+    require('./build/javascript.js'),
+  ]
 };</pre>
 
         <h2 id="jobs">Jobs</h2>
