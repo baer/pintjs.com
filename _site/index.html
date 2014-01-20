@@ -23,11 +23,8 @@
 		<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">
 		<![endif]-->
 
-		<!-- Loading: jQuery Magnific Popup Stylesheet -->
-		<link rel="stylesheet" href="js/magnific/jquery.magnific-popup.css" media="screen">
-
-		<!-- Loading: jQuery Easy Pie Chart Stylesheet -->
-		<link rel="stylesheet" href="js/easy-pie/jquery.easy-pie-chart.css" media="screen">
+		<!-- Loading: highlight.js - Syntax Highlighting-->
+		<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
 
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -128,7 +125,98 @@
 				</div>
 
 				<div class="row section-content">
-					<!-- TODO -->
+					<div class="col-1-4">
+						<h4 class="text-center">Install Pint</h4>
+					</div>
+					<div class="col-3-4">
+						<pre><code class="bash">
+$ npm install -g pint
+$ pt --help
+						</code></pre>
+					</div>
+				</div>
+
+				<div class="row section-content">
+					<div class="col-1-4">
+						<h4 class="text-center">Add Pint to your project</h4>
+					</div>
+					<div class="col-3-4">
+						<h5 class="text-center">./package.json</h5>
+						<pre><code class="javascript">
+{
+  "name": "my-project-name",
+  "version": "0.1.0",
+  "devDependencies": {
+    "pint": "0.1.0",
+    "grunt-contrib-jshint": "0.8.0"
+  }
+}
+						</code></pre>
+					</div>
+				</div>
+
+				<div class="row section-content">
+					<div class="col-1-4">
+						<h4 class="text-center">Create a new pint task</h4>
+						<p>
+							Notice that the config here is exactly what you would put in your Gruntfile.js and the build array is just a list of what would be Grunt tasks.
+						</p>
+					</div>
+					<div class="col-3-4">
+						<h5 class="text-center">./build/test.js</h5>
+						<pre><code class="javascript">
+'use strict';
+
+module.exports = {
+  name: 'test',
+
+  dependsOn: [],
+
+  build: [
+    'jshint',
+  ],
+
+  config: {
+    jshint: {
+      options: {
+        ignores: ['./node_modules/**/*']
+      },
+      all: ['./**/*.js']
+    }
+  }
+};
+						</code></pre>
+					</div>
+				</div>
+
+				<div class="row section-content">
+					<div class="col-1-4">
+						<h4 class="text-center">Create a Pint.js file and require in the build file you just made</h4>
+					</div>
+					<div class="col-3-4">
+						<h5 class="text-center">./Pint.js</h5>
+						<pre><code class="javascript">
+'use strict';
+
+module.exports = {
+  jobs: [
+    require('./build/test.js'),
+  ]
+};
+						</code></pre>
+					</div>
+				</div>
+
+				<div class="row section-content">
+					<div class="col-1-4">
+						<h4 class="text-center">Install your packages and run Pint</h4>
+					</div>
+					<div class="col-3-4">
+						<pre><code class="bash">
+$ npm install
+$ pt
+						</code></pre>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -177,6 +265,17 @@
 		</section>
 		<!-- End: Get Involved -->
 
+		<!-- Loading: Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46908843-1', 'pintjs.com');
+      ga('send', 'pageview');
+    </script>
+
 		<!-- Loading: jQuery -->
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<script src="js/jquery-migrate-1.2.1.min.js"></script>
@@ -193,6 +292,9 @@
 
 		<!-- Loading: Respond.js - Responsive IE8 -->
 		<script src="js/respond.min.js"></script>
+
+		<!-- Loading: highlight.js - Syntax Highlighting-->
+		<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
 
 		<!--[if lt IE 9]>
 		<script src="js/excanvas.js"></script>
