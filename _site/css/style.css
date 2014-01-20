@@ -364,6 +364,13 @@ input.error, textarea.error {
 	margin: 0 8px 8px 0;
 }
 
+/* Code blocks */
+code {
+  border: 1px solid #f08b65;
+  border-radius: 4px;
+}
+.filename { margin: 0; }
+
 /* A. Clearfix */
 
 .clearfix:after {

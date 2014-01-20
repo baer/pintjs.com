@@ -96,19 +96,52 @@
 
 				<div class="row job">
 					<div class="col-full">
-						<h3>Problems Pint is trying to solve</h3>
+						<h3>Problems Pint is Trying to Solve</h3>
 					</div>
 
 					<div class="col-full">
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non urna eu justo vulputate vulputate sit amet nec dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque convallis neque euismod risus interdum ornare. Duis at vulputate tortor. Nam eleifend risus id rutrum vulputate. Donec tincidunt ullamcorper leo, vitae volutpat augue imperdiet eget. Cras ac sapien posuere, placerat elit vel, malesuada ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non urna eu justo vulputate vulputate sit amet nec dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque convallis neque euismod risus interdum ornare. Duis at vulputate tortor. Nam eleifend risus id rutrum vulputate. Donec tincidunt ullamcorper leo, vitae volutpat augue imperdiet eget. Cras ac sapien posuere, placerat elit vel, malesuada ante
+							Grunt ushered in an era of sophisticated frontend build process with by lowering the engineering cost of good tooling. As the Grunt bounded towards near ubiquity in a modern frontend stack, a typical build has gone from a couple of small in house scripts to a Gruntfile accompanied by a half dozen of more of the plugins available from the vibrant developer community.
+						</p>
+						<p>
+							A typical Gruntfile starts with, at a minimum some variation of: jsHint, jasmine, LESS, handlebars, uglify, copy and clean stack. Just these half dozen or so plugins can baloon your Gruntfile upwards of 300 lines and when you add complex concatenation, cache busting, and versioning can cause it to grow well into the 1000+ line range. At this point some of the problems with stock grunt begin to become apparent.
 						</p>
 					</div>
 
 					<div class="col-full">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non urna eu justo vulputate vulputate sit amet nec dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque convallis neque euismod risus interdum ornare. Duis at vulputate tortor. Nam eleifend risus id rutrum vulputate. Donec tincidunt ullamcorper leo, vitae volutpat augue imperdiet eget. Cras ac sapien posuere, placerat elit vel, malesuada ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non urna eu justo vulputate vulputate sit amet nec dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque convallis neque euismod risus interdum ornare. Duis at vulputate tortor. Nam eleifend risus id rutrum vulputate. Donec tincidunt ullamcorper leo, vitae volutpat augue imperdiet eget. Cras ac sapien posuere, placerat elit vel, malesuada ante
-						</p>
+						<ul>
+							<li>
+								<p>
+									<strong>Tasks are grouped by plugin not rather than by the job they are doing.</strong> For example I will frequently have a copy task to move my styles, JavaScript and static files at different points in my build process. Rather than configuring them with the rest of the associated Style, JavaScript or static build steps I just configure them with all the other things that get copied.
+								</p>
+							</li>
+							<li>
+								<p>
+									<strong>Grunt provides no way to declaratively enumerate dependencies.</strong> Uglify may depend on Handlebars compilation and Copy may depend on Less which all depends on passing tests and jsHint. The only way to capture these dependencies is to register very specific tasks the result of this is increased cognitive overhead for your development team.
+								</p>
+							</li>
+							<li>
+								<p>
+									<strong>No concurrency.</strong> Development machines are powerful computers not subject to the constraints of the browser, a good build tool should take advantage of concurrency.
+								</p>
+							</li>
+							<li>
+								<p>
+									<strong>Common development features like versioning and environment profiles are not handled well.</strong> There are a number of somewhat universal tasks that developers are usually left to cobble together themselves. For example most often you will not to develop with minified code so you will have a development task and a production task.
+								</p>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-full">
+						<h3>The Pint Mission</h3>
+						<h4 class="text-center">There is more to build than tasks</h4>
+						<ul class="text-center" style="list-style-type: none;">
+							<li>Build should be concurrent by default</li>
+							<li>Build should manage dependencies transparently</li>
+							<li>Build should be well organized</li>
+							<li>Build tasks should be independant from one another</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -125,7 +158,7 @@
 					</div>
 				</div>
 
-				<div class="row section-content">
+				<div class="row">
 					<div class="col-1-4">
 						<h4 class="text-center">Install Pint</h4>
 					</div>
@@ -137,12 +170,11 @@ $ pt --help
 					</div>
 				</div>
 
-				<div class="row section-content">
+				<div class="row">
 					<div class="col-1-4">
 						<h4 class="text-center">Add Pint to your project</h4>
 					</div>
 					<div class="col-3-4">
-						<h5 class="text-center">./package.json</h5>
 						<pre><code class="javascript">
 {
   "name": "my-project-name",
@@ -153,10 +185,11 @@ $ pt --help
   }
 }
 						</code></pre>
+						<h5 class="filename">./package.json</h5>
 					</div>
 				</div>
 
-				<div class="row section-content">
+				<div class="row">
 					<div class="col-1-4">
 						<h4 class="text-center">Create a new pint task</h4>
 						<p>
@@ -164,7 +197,6 @@ $ pt --help
 						</p>
 					</div>
 					<div class="col-3-4">
-						<h5 class="text-center">./build/test.js</h5>
 						<pre><code class="javascript">
 'use strict';
 
@@ -187,15 +219,15 @@ module.exports = {
   }
 };
 						</code></pre>
+						<h5 class="filename">./build/test.js</h5>
 					</div>
 				</div>
 
-				<div class="row section-content">
+				<div class="row">
 					<div class="col-1-4">
 						<h4 class="text-center">Create a Pint file and require in your build files</h4>
 					</div>
 					<div class="col-3-4">
-						<h5 class="text-center">./Pint.js</h5>
 						<pre><code class="javascript">
 'use strict';
 
@@ -205,10 +237,11 @@ module.exports = {
   ]
 };
 						</code></pre>
+						<h5 class="filename">./Pint.js</h5>
 					</div>
 				</div>
 
-				<div class="row section-content">
+				<div class="row">
 					<div class="col-1-4">
 						<h4 class="text-center">Install packages and run Pint</h4>
 					</div>
