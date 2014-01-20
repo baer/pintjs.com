@@ -335,12 +335,6 @@ input.error, textarea.error {
 
 .job-project { text-align: center; }
 
-/* 6. Docs */
-
-#docs .line { background-color: #4081a3; }
-#docs .bullet { color: #4081a3; }
-#docs a { color: #4081a3; }
-
 /* 8. Get Involved */
 
 #get-involved {

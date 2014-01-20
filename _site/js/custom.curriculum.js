@@ -11,7 +11,11 @@ jQuery( document ).ready( function( $ ){
 
 	// Making navigation sticky on scroll
 	$( '#nav' ).sticky( { topSpacing:10 } );
-	$( '#nav ul' ).onePageNav( { scrollSpeed: 400 } );
+	$( '#nav ul' ).onePageNav( {
+		scrollSpeed: 400,
+		filter: ':not(.external)'
+	});
+
 	$(window).scroll(function(){
 		if($(window).scrollTop() < $(window).height()/2) {
 			$('#nav').find('li').removeClass('current');
