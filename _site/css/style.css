@@ -87,8 +87,13 @@ a img {
 	position: relative;
 }
 
-.section { background-color: #fff; }
-.section-alt { background-color: #eee; }
+.section-white { background-color: #fff; }
+.section-grey { background-color: #eee; }
+.section-green-lt { background-color: #AAD8B0; }
+.section-green-dark { background-color: #96CEB4; }
+.section-yellow-lt { background-color: #FFEEAD; }
+.section-yellow-dark { background-color: #FFCC5C; }
+.section-orange { background-color: #FF6F69; }
 
 .section-title {
 	margin: 0 0 15px 0;
@@ -337,7 +342,7 @@ input.error, textarea.error {
 
 /* 8. Get Involved */
 
-#get-involved {
+#contribute {
 	background-color: #0d2c5a;
 	min-height: 80%;
 	color: #fff;
@@ -346,11 +351,11 @@ input.error, textarea.error {
 .social-links li a { display: inline-block; text-decoration: none; }
 .social-links li i { font-size: 1.5em; }
 
-#get-involved h2, #get-involved h3, #get-involved h4 { color: #fff; }
+#contribute h2, #contribute h3, #contribute h4 { color: #fff; }
 
-#get-involved .line { background-color: #5b9bbc; }
-#get-involved .bullet { color: #5b9bbc; }
-#get-involved a { color: #5b9bbc; }
+#contribute .line { background-color: #5b9bbc; }
+#contribute .bullet { color: #5b9bbc; }
+#contribute a { color: #5b9bbc; }
 
 .social-links {
 	margin: 0;

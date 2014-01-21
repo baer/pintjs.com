@@ -44,7 +44,7 @@
 					</div>
 					<div class="row"><div class="col-1-4 centered line"></div></div>
 					<div class="row">
-						<div class="col-full"><h4>A small, concurrent and dependency aware wrapper around Grunt<span class="cool">js</span></h4></div>
+						<div class="col-full"><h4>A small concurrent Grunt<span class="cool">js</span> runner</h4></div>
 					</div>
 				</div>
 			</div>
@@ -52,10 +52,10 @@
 			<nav id="nav">
 				<!-- The content between <span> </span> tags will be hidden on mobile version -->
 				<ul class="clearfix">
-					<li><a href="#about">About Pint</a></li>
-					<li><a href="#getting-started">Getting Started</a></li>
-					<li><a href="#get-involved">Get Involved</a></li>
-					<li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#get-started">Get Started</a></li>
+					<li><a href="#contribute">Contribute</a></li>
+					<li>&nbsp;|&nbsp;</li>
 					<li><a class="external" href="docs.html">Docs</a></li>
 				</ul>
 			</nav>
@@ -97,7 +97,13 @@
 
 				<div class="row job">
 					<div class="col-full">
-						<h3>Problems Pint is Trying to Solve</h3>
+						<h3>The Pint Mission</h3>
+						<ul class="text-center" style="list-style-type: none;">
+							<li>Build should be concurrent by default</li>
+							<li>Build should manage dependencies transparently</li>
+							<li>Build should be well organized</li>
+							<li>Build tasks should be independant from one another</li>
+						</ul>
 					</div>
 
 					<div class="col-full">
@@ -109,40 +115,34 @@
 						</p>
 					</div>
 
-					<div class="col-full">
-						<ul>
-							<li>
-								<p>
-									<strong>Tasks are grouped by plugin not rather than by the job they are doing.</strong> For example I will frequently have a copy task to move my styles, JavaScript and static files at different points in my build process. Rather than configuring them with the rest of the associated Style, JavaScript or static build steps I just configure them with all the other things that get copied.
-								</p>
-							</li>
-							<li>
-								<p>
-									<strong>Grunt provides no way to declaratively enumerate dependencies.</strong> Uglify may depend on Handlebars compilation and Copy may depend on Less which all depends on passing tests and jsHint. The only way to capture these dependencies is to register very specific tasks the result of this is increased cognitive overhead for your development team.
-								</p>
-							</li>
-							<li>
-								<p>
-									<strong>No concurrency.</strong> Development machines are powerful computers not subject to the constraints of the browser, a good build tool should take advantage of concurrency.
-								</p>
-							</li>
-							<li>
-								<p>
-									<strong>Common development features like versioning and environment profiles are not handled well.</strong> There are a number of somewhat universal tasks that developers are usually left to cobble together themselves. For example most often you will not to develop with minified code so you will have a development task and a production task.
-								</p>
-							</li>
-						</ul>
+					<div class="row">
+						<div class="col-1-2">
+							<h4 class="text-center">Tasks are grouped by plugin not rather than by the job they are doing</h4>
+							<p>
+								For example I will frequently have a copy task to move my styles, JavaScript and static files at different points in my build process. Rather than configuring them with the rest of the associated Style, JavaScript or static build steps I just configure them with all the other things that get copied.
+							</p>
+						</div>
+						<div class="col-1-2">
+							<h4 class="text-center">Grunt provides no way to declaratively enumerate dependencies.</h4>
+							<p>
+								Uglify may depend on Handlebars compilation and Copy may depend on Less which all depends on passing tests and jsHint. The only way to capture these dependencies is to register very specific tasks the result of this is increased cognitive overhead for your development team.
+							</p>
+						</div>
 					</div>
 
-					<div class="col-full">
-						<h3>The Pint Mission</h3>
-						<h4 class="text-center">There is more to build than tasks</h4>
-						<ul class="text-center" style="list-style-type: none;">
-							<li>Build should be concurrent by default</li>
-							<li>Build should manage dependencies transparently</li>
-							<li>Build should be well organized</li>
-							<li>Build tasks should be independant from one another</li>
-						</ul>
+					<div class="row">
+						<div class="col-1-2">
+							<h4 class="text-center">No concurrency.</h4>
+							<p>
+								Development machines are powerful computers not subject to the constraints of the browser, a good build tool should take advantage of concurrency.
+							</p>
+						</div>
+						<div class="col-1-2">
+							<h4 class="text-center">Common development features like versioning and environment profiles are not handled well.</h4>
+							<p>
+								There are a number of somewhat universal tasks that developers are usually left to cobble together themselves. For example most often you will not to develop with minified code so you will have a development task and a production task.
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -150,7 +150,7 @@
 		<!-- End: About Page -->
 
 		<!-- Start: Getting Started -->
-		<section id="getting-started" class="section-alt">
+		<section id="get-started" class="section-grey">
 			<div class="container">
 				<div class="row">
 					<div class="col-full">
@@ -161,7 +161,7 @@
 
 				<div class="row">
 					<div class="col-1-4">
-						<h4 class="text-center">Install Pint</h4>
+						<h4>Install Pint</h4>
 					</div>
 					<div class="col-3-4">
 						<pre><code class="bash">
@@ -173,7 +173,7 @@ $ pt --help
 
 				<div class="row">
 					<div class="col-1-4">
-						<h4 class="text-center">Add Pint to your project</h4>
+						<h4>Add Pint to your project</h4>
 					</div>
 					<div class="col-3-4">
 						<pre><code class="javascript">
@@ -192,7 +192,7 @@ $ pt --help
 
 				<div class="row">
 					<div class="col-1-4">
-						<h4 class="text-center">Create a new pint task</h4>
+						<h4>Create a new pint task</h4>
 						<p>
 							Notice that the config here is exactly what you would put in your Gruntfile.js and the build array is just a list of what would be Grunt tasks.
 						</p>
@@ -226,7 +226,7 @@ module.exports = {
 
 				<div class="row">
 					<div class="col-1-4">
-						<h4 class="text-center">Create a Pint file and require in your build files</h4>
+						<h4>Create a Pint file and require in your build files</h4>
 					</div>
 					<div class="col-3-4">
 						<pre><code class="javascript">
@@ -244,7 +244,7 @@ module.exports = {
 
 				<div class="row">
 					<div class="col-1-4">
-						<h4 class="text-center">Install packages and run Pint</h4>
+						<h4>Install packages and run Pint</h4>
 					</div>
 					<div class="col-3-4">
 						<pre><code class="bash">
@@ -258,7 +258,7 @@ $ pt
 		<!-- End: Getting Started -->
 
 		<!-- Start: Get Involved -->
-		<section id="get-involved" class="section">
+		<section id="contribute" class="section">
 			<div class="container">
 				<div class="row">
 					<div class="col-full">
