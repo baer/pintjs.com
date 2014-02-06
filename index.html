@@ -117,33 +117,64 @@
 
 					<div class="row">
 						<div class="col-1-2">
-							<h4 class="text-center">Tasks are grouped by plugin rather than by the job they are doing.</h4>
-							<p>
-								For example, I will frequently have a copy task to move my styles, JavaScript, and static files at different points in my build process. Rather than configuring them with the rest of the associated Style, JavaScript or static build steps I just configure them with all the other things that get copied.
-							</p>
-						</div>
-						<div class="col-1-2">
-							<h4 class="text-center">Grunt provides no way to declaratively enumerate dependencies.</h4>
+							<h4 class="text-center">Grunt Can't declaratively enumerate dependencies</h4>
 							<p>
 								Uglify may depend on Handlebars compilation and Copy may depend on Less which all depends on passing tests and jsHint. The only way to capture these dependencies is to register very specific tasks. The result of this is increased cognitive overhead for your development team.
 							</p>
+						</div>
+						<div class="col-1-2">
+						<h4 class="text-center">Pint is Dependency Aware</h4>
+						<p>
+							Your project's build tasks form a <a href="http://en.wikipedia.org/wiki/Directed_acyclic_graph">directed acyclic graph</a> which Pint uses, like many other mature build tools, to create a safe build sequence.
+						</p>							
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-1-2">
-							<h4 class="text-center">No concurrency.</h4>
+							<h4 class="text-center">Grunt(?) groups tasks by plugin, not by the job they are doing</h4>
+							<p>
+								For example, I will frequently have a copy task to move my styles, JavaScript, and static files at different points in my build process. Rather than configuring them with the rest of the associated Style, JavaScript or static build steps I just configure them with all the other things that get copied.
+							</p>
+						</div>
+						<div class="col-1-2">
+						<h4 class="text-center">Pint Uses Grunt and Grunt plugins</h4>
+						<p>
+							Pint runs Grunt processes under the hood so you can continue to take advantage of the Grunt plugin ecosystem and can reuse all your existing Grunt config.
+						</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-1-2">
+							<h4 class="text-center"><i class="fa fa-ban"></i>Grunt(?) handles features like versioning and environment profiles poorly</h4>
+							<p>
+								There are a number of somewhat universal tasks that developers are usually left to cobble together themselves. For example most often you will not to develop with minified code so you will have a development task and a production task.
+							</p>
+						</div>
+						<div class="col-1-2">
+						<h4 class="text-center">Pint Fixes this problem somehow</h4>
+						<p>
+							I assume that Pint is able to fix this. Eric?
+						</p>
+						</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-1-2">
+							<h4 class="text-center">Grunt(?) Has No concurrency</h4>
 							<p>
 								Development machines are powerful computers not subject to the constraints of the browser. A good build tool should take advantage of concurrency.
 							</p>
 						</div>
 						<div class="col-1-2">
-							<h4 class="text-center">Common development features like versioning and environment profiles are not handled well.</h4>
-							<p>
-								There are a number of somewhat universal tasks that developers are usually left to cobble together themselves. For example, most often you will not to develop with minified code so you will have a development task and a production task.
-							</p>
+						<h4 class="text-center">Pint Is Concurrent</h4>
+						<p>
+							Because Pint is dependency aware it will safely and transparently parallelize your build by spawning multiple Grunt processes.
+						</p>
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</section>
