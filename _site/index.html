@@ -42,9 +42,15 @@
 					<div class="row">
 						<div class="col-full"><h1>Pint<span class="cool">js</span></h1></div>
 					</div>
+					<div class="row">
+						<div class="col-full">
+							<img src="img/pintjs_360.png"/>
+						</div>
+					</div>
+					
 					<div class="row"><div class="col-1-4 centered line"></div></div>
 					<div class="row">
-						<div class="col-full"><h4>A small concurrent Grunt<span class="cool">js</span> runner</h4></div>
+						<div class="col-full"><h4>A small, concurrent Grunt<span class="cool">js</span> runner</h4></div>
 					</div>
 				</div>
 			</div>
@@ -74,7 +80,7 @@
 
 				<div class="col-full">
 					<p>
-            Pint is a small, asyncronous, dependency aware wrapper around Grunt attenpting to solve some of the problems that accompany a build process at scale. A typical Gruntfile starts with, at a minimum, some variation of: jsHint, jasmine, LESS, handlebars, uglify, copy, and clean stack. Just these half dozen or so plugins can baloon your Gruntfile upwards of 300 lines and when you add complex concatenation, cache busting, and versioning can cause it to grow well in to the 1000+ lines. Pint allows you to break up and organize your build into small testable pieces.
+						Pint is a small, asynchronous, dependency aware wrapper around Grunt attempting to solve some of the problems that accompany a build process at scale. A typical Gruntfile starts with, at a minimum, some variation of: jsHint, jasmine, LESS, handlebars, uglify, copy, and clean stack. Just these half dozen or so plugins can balloon your Gruntfile upwards of 300 lines and when you add complex concatenation, cache busting, and versioning can cause it to grow well in to the 1000+ lines. Pint allows you to break up and organize your build into small testable pieces.
 					</p>
 				</div>
 
@@ -85,7 +91,7 @@
 							<li>Build should be concurrent by default</li>
 							<li>Build should manage dependencies transparently</li>
 							<li>Build should be well organized</li>
-							<li>Build tasks should be independant from one another</li>
+							<li>Build tasks should be independent from one another</li>
 						</ul>
 					</div>
 				</div>
@@ -94,7 +100,7 @@
 					<div class="col-1-4">
 						<h4 class="text-center">Dependency Aware</h4>
 						<p>
-							Your project's build tasks form a <a href="http://en.wikipedia.org/wiki/Directed_acyclic_graph">directed acyclic graph</a> which Pint uses, like many other mature build tools, to create a safe build sequence.
+							Your project's build tasks form a <a href="http://en.wikipedia.org/wiki/Directed_acyclic_graph">directed acyclic graph</a> which Pint uses, like many other mature build tools, to create a safe build sequence for you.
 						</p>
 					</div>
 					<div class="col-1-4">
@@ -106,7 +112,7 @@
 					<div class="col-1-4">
 						<h4 class="text-center">Uses Grunt plugins</h4>
 						<p>
-							Pint runs Grunt processes under the hood so you can continue to take advantage of the Grunt plugin ecosystem and can reuse all your existing Grunt config.(this needs a which/why).
+							Pint runs Grunt processes under the hood so you can continue to take advantage of the Grunt plugin ecosystem and can reuse all your existing Grunt config.
 						</p>
 					</div>
 					<div class="col-1-4">
@@ -209,7 +215,7 @@ module.exports = {
   ]
 };
 						</code></pre>
-						<h5 class="filename">./Pint.js</h5>
+						<h5 class="filename">./Pintfile.js</h5>
 					</div>
 				</div>
 
